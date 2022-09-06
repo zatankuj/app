@@ -13,6 +13,9 @@ public partial class MapPageViewModel : ObservableObject
     [ObservableProperty]
     public (double, double) cords;
 
+    [ObservableProperty] 
+    public (double, double) locationCords;
+
     [RelayCommand]
     public async Task SetCurrentLocation()
     {
@@ -20,6 +23,6 @@ public partial class MapPageViewModel : ObservableObject
         var location = await Geolocation.Default.GetLocationAsync(
             new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10)), cancelTokenSource.Token);
 
-        cords = (location!.Longitude, location!.Latitude);
+        locationCords = (location!.Latitude, location!.Longitude);
     }
 }

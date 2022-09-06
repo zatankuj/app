@@ -6,18 +6,17 @@
              x:DataType="viewmodel:MapPageViewModel"
              x:Class="Zatankuj.App.Pages.Map.MapPage">
     <ContentPage.Content>
-        <StackLayout>
+        <FlexLayout>
             <mapsui:MapView x:Name="MapView"
                             MyLocationEnabled="False"
                             IsNorthingButtonVisible="False"
                             IsZoomButtonVisible="False"
-                            IsMyLocationButtonVisible="False"
+                            IsMyLocationButtonVisible="True"
+                            MyLocationFollow="True"
                             IsVisible="true"
                             VerticalOptions="FillAndExpand"
                             HorizontalOptions="FillAndExpand"
-                            BackgroundColor="Gray"
-                            Loaded="MapComponentLoaded"
-                            Margin="10" />
-        </StackLayout>
+                            Loaded="MapComponentLoaded"/>
+        </FlexLayout>
     </ContentPage.Content>
 </ContentPage>

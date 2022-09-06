@@ -1,5 +1,6 @@
 ﻿using Mapsui;
 using Mapsui.Projections;
+using Mapsui.UI.Maui;
 
 namespace Zatankuj.App.Pages.Map;
 
@@ -20,8 +21,16 @@ public partial class MapPage : ContentPage
         MapView.Navigator?.NavigateTo(center: new MPoint(x, y), 3000d);
     }
 
-    private void MapComponentLoaded(object sender, EventArgs e)
+    private void SetMyLocation((double, double) location)
+    {
+        MapView.MyLocationLayer.UpdateMyLocation(new Position(location.Item1, location.Item2));
+    }
+
+    private async void MapComponentLoaded(object sender, EventArgs e)
     {
         SetLocation();
+        var vm = (MapPageViewModel)BindingContext;
+        await vm.SetCurrentLocation();
+        SetMyLocation(vm.locationCords);
     }
 }
