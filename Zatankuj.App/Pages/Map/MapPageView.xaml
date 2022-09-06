@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mapsui="clr-namespace:Mapsui.UI.Maui;assembly=Mapsui.UI.Maui"
+             xmlns:viewmodel="clr-namespace:Zatankuj.App.Pages.Map"
+             x:DataType="viewmodel:MapPageViewModel"
+             x:Class="Zatankuj.App.Pages.Map.MapPage">
+    <ContentPage.Content>
+        <FlexLayout>
+            <mapsui:MapView x:Name="MapView"
+                            MyLocationEnabled="False"
+                            IsNorthingButtonVisible="False"
+                            IsZoomButtonVisible="False"
+                            IsMyLocationButtonVisible="True"
+                            MyLocationFollow="True"
+                            IsVisible="true"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            Loaded="MapComponentLoaded" />
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>
